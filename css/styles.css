@@ -1803,28 +1803,30 @@ button {
 .branch-cards-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 28px;
+  gap: 20px;
 }
 
 @media (min-width: 768px) {
   .branch-cards-grid {
     grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
   }
 }
 
 .branch-card {
   background: var(--color-surface-subtle);
   border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: var(--radius-lg);
-  padding: 30px;
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
   display: flex;
   flex-direction: column;
-  transition: all var(--transition-normal);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
   position: relative;
+  height: 100%;
 }
 
 .branch-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
   box-shadow: var(--shadow-md);
   border-color: var(--color-gold-primary);
   background: #FFFFFF;
@@ -1835,54 +1837,58 @@ button {
   align-self: flex-start;
   background: var(--color-crimson);
   color: #FFFFFF;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  padding: 3px 10px;
+  padding: 3px 9px;
   border-radius: var(--radius-pill);
   text-transform: uppercase;
-  margin-bottom: 14px;
+  letter-spacing: 0.03em;
+  margin-bottom: 8px;
+  line-height: 1.2;
 }
 
 .branch-card h3 {
   font-family: var(--font-heading);
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   color: var(--color-obsidian-900);
-  margin-bottom: 12px;
+  margin-bottom: 6px;
+  line-height: 1.25;
 }
 
 .branch-address {
   color: var(--color-text-muted);
-  font-size: 0.92rem;
-  line-height: 1.5;
-  margin-bottom: 20px;
-  flex-grow: 1;
+  font-size: 0.86rem;
+  line-height: 1.4;
+  margin-bottom: 8px;
 }
 
 .branch-timing {
-  font-size: 0.85rem;
+  font-size: 0.80rem;
   color: var(--color-accent-emerald);
   font-weight: 600;
-  margin-bottom: 18px;
+  margin-bottom: 8px;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
 }
 
 .branch-contacts {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 24px;
+  gap: 4px;
+  margin-bottom: 12px;
 }
 
 .contact-link {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 0.92rem;
+  gap: 6px;
+  font-size: 0.86rem;
   font-weight: 600;
   color: var(--color-obsidian-900);
+  text-decoration: none;
   transition: color var(--transition-fast);
+  line-height: 1.3;
 }
 
 .contact-link:hover {
@@ -1891,13 +1897,19 @@ button {
 
 .branch-card-actions {
   display: flex;
-  gap: 10px;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 4px;
 }
 
 .branch-card-actions .btn {
   flex: 1;
-  padding: 10px 14px;
-  font-size: 0.85rem;
+  padding: 8px 12px;
+  font-size: 0.82rem;
+  min-height: 38px;
+  text-align: center;
+  justify-content: center;
+  border-radius: var(--radius-pill);
 }
 
 /* Reviews & Testimonials */
@@ -2932,40 +2944,66 @@ button {
   }
 }
 
-/* Branch Cards Mobile UX & Alignment */
+/* Branch Cards Mobile UX & Compact Sizing */
 @media (max-width: 640px) {
+  .branch-cards-grid {
+    gap: 12px;
+  }
   .branch-card {
-    padding: 22px 18px;
+    padding: 14px 16px;
+    border-radius: var(--radius-md);
+  }
+  .branch-badge {
+    margin-bottom: 6px;
   }
   .branch-card h3 {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
+    margin-bottom: 4px;
+  }
+  .branch-address {
+    font-size: 0.82rem;
+    line-height: 1.35;
+    margin-bottom: 6px;
+  }
+  .branch-timing {
+    font-size: 0.78rem;
+    margin-bottom: 6px;
+  }
+  .branch-contacts {
+    gap: 4px;
+    margin-bottom: 10px;
   }
   .contact-link {
-    min-height: 44px;
-    display: inline-flex;
-    align-items: center;
+    font-size: 0.84rem;
+    padding: 2px 0;
+  }
+  .branch-card-actions {
+    gap: 8px;
   }
   .branch-card-actions .btn {
-    min-height: 44px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    min-height: 38px;
+    padding: 7px 10px;
+    font-size: 0.80rem;
   }
 }
 
 @media (max-width: 380px) {
   .branch-card {
-    padding: 18px 14px;
+    padding: 12px 12px;
   }
-  .branch-card-actions {
-    flex-direction: column;
-    gap: 8px;
+  .branch-card h3 {
+    font-size: 1.05rem;
+  }
+  .branch-address {
+    font-size: 0.78rem;
+  }
+  .contact-link {
+    font-size: 0.80rem;
   }
   .branch-card-actions .btn {
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-    padding: 12px;
+    min-height: 36px;
+    padding: 6px 8px;
+    font-size: 0.76rem;
   }
 }
 
