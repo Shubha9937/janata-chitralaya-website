@@ -1,45 +1,58 @@
 /* ==========================================================================
    Janata Chitralaya - Modern Cultural Luxury Design System
-   Color Palette: Temple Gold, Royal Crimson, Deep Obsidian, Sandalwood Cream
+   Theme: Option A - Royal Imperial Purple & Temple Gold
    ========================================================================== */
 
 :root {
-  /* Color Tokens */
+  /* Brand Tokens: Royal Purple & Temple Gold */
   --color-gold-primary: #D4AF37;
   --color-gold-hover: #E5C158;
   --color-gold-light: #F9F1D8;
   --color-gold-dark: #A68018;
-  --color-crimson: #8B0000;
-  --color-crimson-light: #A31212;
-  --color-crimson-dark: #5C0000;
-  --color-maroon-bg: #1A070B;
+
+  --color-purple-primary: #581C87;
+  --color-purple-hover: #6B21A8;
+  --color-purple-light: #7E22CE;
+  --color-purple-soft: #F3E8FF;
+  --color-purple-dark: #3B0764;
+  --color-purple-night: #160826;
+  --color-purple-tint: #FAF7FD;
+
+  /* Primary Theme Aliases */
+  --color-primary: #581C87;
+  --color-crimson: #581C87;
+  --color-crimson-light: #6B21A8;
+  --color-crimson-dark: #3B0764;
+  --color-maroon-bg: #160826;
   
-  --color-obsidian-900: #0B0E14;
-  --color-obsidian-800: #121721;
-  --color-obsidian-700: #1C2433;
-  --color-obsidian-600: #293448;
+  --color-obsidian-900: #0E0517;
+  --color-obsidian-800: #170B26;
+  --color-obsidian-700: #231238;
+  --color-obsidian-600: #331B4F;
   
-  --color-cream-bg: #FDFBF7;
+  --color-cream-bg: #FAF7FD;
   --color-surface-white: #FFFFFF;
-  --color-surface-subtle: #F6F3EB;
+  --color-surface-subtle: #F5EEFC;
   --color-surface-card: #FFFFFF;
   
-  --color-text-main: #1C1E23;
-  --color-text-muted: #596172;
-  --color-text-light: #94A3B8;
+  --color-text-main: #1C1526;
+  --color-text-muted: #645A73;
+  --color-text-light: #968CA3;
   --color-text-white: #FFFFFF;
   
   --color-accent-emerald: #059669;
   --color-accent-amber: #D97706;
   
   /* Borders & Shadows */
-  --border-subtle: rgba(212, 175, 55, 0.2);
-  --border-card: rgba(0, 0, 0, 0.08);
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 8px 24px rgba(11, 14, 20, 0.08);
-  --shadow-lg: 0 16px 40px rgba(11, 14, 20, 0.12);
-  --shadow-gold: 0 8px 25px rgba(212, 175, 55, 0.25);
-  --shadow-dark: 0 20px 50px rgba(0, 0, 0, 0.35);
+  --border-subtle: rgba(212, 175, 55, 0.25);
+  --border-card: rgba(88, 28, 135, 0.08);
+  --border-purple-subtle: rgba(88, 28, 135, 0.15);
+  --shadow-sm: 0 2px 8px rgba(22, 8, 38, 0.05);
+  --shadow-md: 0 8px 24px rgba(22, 8, 38, 0.08);
+  --shadow-lg: 0 16px 40px rgba(22, 8, 38, 0.12);
+  --shadow-gold: 0 8px 25px rgba(212, 175, 55, 0.28);
+  --shadow-purple: 0 8px 25px rgba(88, 28, 135, 0.28);
+  --shadow-dark: 0 20px 50px rgba(14, 5, 23, 0.45);
 
   /* Typography */
   --font-heading: 'Playfair Display', Georgia, serif;
@@ -366,16 +379,16 @@ button {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--color-crimson) 0%, #A81212 100%);
+  background: linear-gradient(135deg, var(--color-purple-primary) 0%, var(--color-purple-hover) 100%);
   color: var(--color-surface-white);
-  box-shadow: 0 4px 16px rgba(139, 0, 0, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 16px rgba(88, 28, 135, 0.28);
+  border: 1px solid rgba(212, 175, 55, 0.25);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #A81212 0%, #C41818 100%);
+  background: linear-gradient(135deg, var(--color-purple-hover) 0%, var(--color-purple-light) 100%);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(139, 0, 0, 0.35);
+  box-shadow: 0 6px 20px rgba(88, 28, 135, 0.38);
   color: var(--color-surface-white);
 }
 
@@ -472,8 +485,9 @@ button {
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 75% 30%, rgba(139, 0, 0, 0.35) 0%, transparent 60%),
-              linear-gradient(180deg, rgba(11, 14, 20, 0.7) 0%, rgba(11, 14, 20, 0.95) 100%);
+  background: radial-gradient(circle at 75% 30%, rgba(88, 28, 135, 0.45) 0%, transparent 65%),
+              radial-gradient(circle at 20% 80%, rgba(59, 7, 100, 0.4) 0%, transparent 70%),
+              linear-gradient(180deg, rgba(22, 8, 38, 0.78) 0%, rgba(14, 5, 23, 0.96) 100%);
 }
 
 .hero-content {
@@ -612,10 +626,10 @@ button {
 }
 
 .branch-chip:hover, .branch-chip.active {
-  background: var(--color-crimson);
+  background: var(--color-purple-primary);
   color: #FFFFFF;
-  border-color: var(--color-crimson);
-  box-shadow: 0 4px 12px rgba(139, 0, 0, 0.2);
+  border-color: var(--color-purple-primary);
+  box-shadow: 0 4px 12px rgba(88, 28, 135, 0.25);
 }
 
 /* Catalog Filter & Controls */
@@ -627,7 +641,7 @@ button {
   display: flex;
   align-items: center;
   background: var(--color-surface-white);
-  border: 1.5px solid rgba(0, 0, 0, 0.1);
+  border: 1.5px solid rgba(88, 28, 135, 0.15);
   border-radius: var(--radius-pill);
   padding: 8px 20px;
   margin-bottom: 24px;
@@ -636,8 +650,8 @@ button {
 }
 
 .catalog-search-bar:focus-within {
-  border-color: var(--color-gold-primary);
-  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+  border-color: var(--color-purple-primary);
+  box-shadow: 0 0 0 3px rgba(88, 28, 135, 0.15);
 }
 
 .catalog-search-bar svg {
@@ -672,21 +686,22 @@ button {
   font-size: 0.9rem;
   font-weight: 600;
   background: var(--color-surface-white);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(88, 28, 135, 0.12);
   color: var(--color-text-muted);
   transition: all var(--transition-fast);
 }
 
 .category-tab-btn:hover {
-  color: var(--color-text-main);
-  background: #F1EFEA;
+  color: var(--color-purple-primary);
+  background: var(--color-purple-soft);
+  border-color: rgba(88, 28, 135, 0.2);
 }
 
 .category-tab-btn.active {
-  background: var(--color-obsidian-900);
-  color: var(--color-gold-primary);
-  border-color: var(--color-obsidian-900);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  background: var(--color-purple-primary);
+  color: #FFFFFF;
+  border-color: var(--color-purple-primary);
+  box-shadow: 0 4px 14px rgba(88, 28, 135, 0.28);
 }
 
 /* Costume Cards Grid */
@@ -812,12 +827,13 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  background: var(--color-surface-subtle);
+  background: var(--color-purple-soft);
   font-size: 0.76rem;
   font-weight: 600;
-  color: var(--color-text-muted);
+  color: var(--color-purple-primary);
   padding: 3px 10px;
   border-radius: 6px;
+  border: 1px solid rgba(88, 28, 135, 0.12);
 }
 
 .card-footer {
@@ -999,7 +1015,7 @@ button {
 
 .school-certificate-banner {
   margin-top: 24px;
-  background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(139, 0, 0, 0.3) 100%);
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(88, 28, 135, 0.35) 100%);
   border: 1px dashed var(--color-gold-primary);
   padding: 16px;
   border-radius: var(--radius-md);
@@ -1434,10 +1450,10 @@ button {
 
 /* Footer */
 .footer {
-  background: var(--color-obsidian-900);
+  background: linear-gradient(180deg, #160826 0%, #0E0517 100%);
   color: #CBD5E1;
   padding: 70px 0 30px 0;
-  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  border-top: 1px solid rgba(212, 175, 55, 0.25);
 }
 
 .footer-grid {
@@ -1631,10 +1647,10 @@ button {
    Real In-Store & Event Photos Sliding Carousel Section
    ========================================================================== */
 .real-carousel-section {
-  background: #FDFBF7;
+  background: var(--color-purple-tint);
   position: relative;
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
+  border-top: 1px solid var(--border-purple-subtle);
+  border-bottom: 1px solid var(--border-purple-subtle);
   overflow: hidden;
 }
 
@@ -1662,8 +1678,8 @@ button {
   background: var(--color-surface-white);
   border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
-  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 18px rgba(88, 28, 135, 0.06);
+  border: 1px solid var(--border-card);
   display: flex;
   flex-direction: column;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
@@ -1685,8 +1701,8 @@ button {
 
 .carousel-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(139, 0, 0, 0.12);
-  border-color: var(--color-gold);
+  box-shadow: 0 12px 30px rgba(88, 28, 135, 0.16);
+  border-color: var(--color-purple-primary);
 }
 
 .carousel-image-frame {
@@ -1713,9 +1729,9 @@ button {
   position: absolute;
   top: 12px;
   left: 12px;
-  background: rgba(11, 14, 20, 0.82);
+  background: rgba(22, 8, 38, 0.88);
   backdrop-filter: blur(8px);
-  color: var(--color-gold-light);
+  color: var(--color-gold-hover);
   font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
