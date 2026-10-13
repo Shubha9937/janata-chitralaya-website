@@ -25,7 +25,7 @@
     },
     'nuagaon': {
       name: 'Nuagaon Cultural Center',
-      address: 'Nuagaon Main Road, Bhubaneswar, Odisha',
+      address: 'Nuagaon Main Road,Near Indian Oil Petrol Pump, Nuagaon, Bhubaneswar, Odisha',
       phone: '+919348205465',
       altPhone: '+919937558221',
       mapQuery: 'Janata+Chitralaya+Nuagaon+Bhubaneswar'
@@ -419,14 +419,10 @@
       priceBox.appendChild(priceAmount);
       footer.appendChild(priceBox);
 
-      const rentBtn = document.createElement('button');
-      rentBtn.className = 'btn btn-primary';
-      rentBtn.type = 'button';
-      rentBtn.textContent = 'Rent via WhatsApp';
-      rentBtn.addEventListener('click', () => {
-        openBookingModal(costume.title);
-      });
-      footer.appendChild(rentBtn);
+      const availBadge = document.createElement('span');
+      availBadge.className = 'card-availability-pill';
+      availBadge.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Available in Store';
+      footer.appendChild(availBadge);
 
       body.appendChild(footer);
       card.appendChild(body);
