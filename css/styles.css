@@ -161,11 +161,45 @@ button {
   margin-bottom: 16px;
   letter-spacing: -0.02em;
   line-height: 1.25;
+  hyphens: none;
+  -webkit-hyphens: none;
+  word-break: normal;
+  overflow-wrap: normal;
 }
 
 .section-header p {
   color: var(--color-text-muted);
   font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .section-header {
+    margin: 0 auto 28px auto;
+    padding: 0 6px;
+  }
+  .section-header h2 {
+    font-size: 1.85rem;
+    line-height: 1.22;
+    margin-top: 8px;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  .section-header p {
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-header {
+    margin: 0 auto 22px auto;
+  }
+  .section-header h2 {
+    font-size: 1.62rem;
+  }
+  .section-header p {
+    font-size: 0.88rem;
+  }
 }
 
 /* Top Announcement Bar */
@@ -584,7 +618,7 @@ button {
 .branch-quick-strip {
   background: var(--color-surface-white);
   border-bottom: 1px solid var(--border-card);
-  padding: 16px 0;
+  padding: 14px 0;
   box-shadow: var(--shadow-sm);
 }
 
@@ -593,7 +627,7 @@ button {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 14px;
 }
 
 .branch-strip-label {
@@ -623,6 +657,7 @@ button {
   font-weight: 500;
   color: var(--color-text-main);
   transition: all var(--transition-fast);
+  white-space: nowrap;
 }
 
 .branch-chip:hover, .branch-chip.active {
@@ -630,6 +665,41 @@ button {
   color: #FFFFFF;
   border-color: var(--color-purple-primary);
   box-shadow: 0 4px 12px rgba(88, 28, 135, 0.25);
+}
+
+@media (max-width: 768px) {
+  .branch-quick-strip {
+    padding: 12px 0 14px 0;
+  }
+  .branch-strip-wrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+  .branch-strip-label {
+    justify-content: center;
+    font-size: 0.88rem;
+  }
+  .branch-chips {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    justify-content: flex-start;
+    padding: 2px 4px 6px 4px;
+    gap: 8px;
+    scrollbar-width: none;
+  }
+  .branch-chips::-webkit-scrollbar {
+    display: none;
+  }
+  .branch-chip {
+    flex-shrink: 0;
+    font-size: 0.82rem;
+    padding: 7px 14px;
+  }
 }
 
 /* Catalog Filter & Controls */
@@ -1112,6 +1182,31 @@ button {
   font-size: 0.95rem;
   margin-bottom: 20px;
   line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  .creator-cards-grid {
+    gap: 20px;
+  }
+  .creator-feature-card {
+    min-height: 380px;
+  }
+  .creator-overlay {
+    padding: 22px 18px 24px 18px;
+  }
+  .creator-overlay h3 {
+    font-size: 1.35rem;
+    margin-bottom: 6px;
+  }
+  .creator-overlay p {
+    font-size: 0.88rem;
+    line-height: 1.45;
+    margin-bottom: 16px;
+  }
+  .creator-overlay .btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 /* Rabindra Mandap Stage Makeup & Behind The Scenes Feature */
@@ -1645,14 +1740,16 @@ button {
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 99;
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08);
-  display: flex;
-  padding: 10px 16px;
-  gap: 10px;
+  z-index: 999;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(88, 28, 135, 0.12);
+  box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.08);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 8px 10px;
+  gap: 8px;
 }
 
 @media (min-width: 992px) {
@@ -1662,10 +1759,24 @@ button {
 }
 
 .mobile-bottom-bar .btn {
-  flex: 1;
-  padding: 10px 8px;
-  font-size: 0.85rem;
-  gap: 6px;
+  padding: 9px 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  gap: 4px;
+  white-space: nowrap;
+  border-radius: var(--radius-pill);
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+}
+
+@media (max-width: 991px) {
+  body {
+    padding-bottom: 74px;
+  }
+  .footer-bottom {
+    padding-bottom: 24px;
+  }
 }
 
 /* ==========================================================================
@@ -2225,4 +2336,100 @@ button {
     font-size: 0.7rem;
   }
 }
+
+/* Instagram Follow Pill */
+.instagram-follow-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(221, 42, 123, 0.08);
+  border: 1px solid rgba(221, 42, 123, 0.28);
+  color: #C13584;
+  padding: 8px 20px;
+  border-radius: var(--radius-pill);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  text-align: center;
+  max-width: 100%;
+}
+
+.instagram-follow-pill:hover {
+  background: rgba(221, 42, 123, 0.16);
+  border-color: #C13584;
+}
+
+@media (max-width: 640px) {
+  .instagram-follow-pill {
+    font-size: 0.8rem;
+    padding: 7px 14px;
+    gap: 6px;
+    border-radius: 999px;
+  }
+}
+
+/* Theatre Section Mobile Polish */
+@media (max-width: 768px) {
+  .theatre-highlight-grid {
+    gap: 22px;
+  }
+  .theatre-highlight-info h2 {
+    font-size: 1.85rem !important;
+    line-height: 1.22 !important;
+  }
+  .theatre-highlight-info p {
+    font-size: 0.95rem !important;
+    margin-bottom: 16px !important;
+  }
+  .theatre-cta-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  .theatre-cta-group .btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 12px 14px;
+  }
+  .theatre-review-quote-box {
+    padding: 20px 18px;
+    margin-top: 4px;
+  }
+}
+
+/* Footer WhatsApp Buttons Mobile Responsive */
+.footer-whatsapp-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+@media (max-width: 640px) {
+  .footer-whatsapp-actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .footer-whatsapp-actions .btn {
+    padding: 10px 8px;
+    font-size: 0.78rem;
+    text-align: center;
+    justify-content: center;
+    white-space: nowrap;
+    width: 100%;
+  }
+}
+
+@media (max-width: 380px) {
+  .footer-whatsapp-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
 
