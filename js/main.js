@@ -848,18 +848,23 @@
       btnSubmitWa2.addEventListener('click', (e) => handleBookingSubmit(e, '919692691800'));
     }
 
-    // FAQ Accordion
-    const faqQuestions = document.querySelectorAll('.faq-question');
-    faqQuestions.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const item = btn.parentElement;
-        const isActive = item.classList.contains('active');
-        document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
-        if (!isActive) {
-          item.classList.add('active');
+    // School Names Mobile Collapse & Expand Toggle
+    const toggleSchoolsBtn = document.getElementById('toggleSchoolsBtn');
+    const institutionTags = document.getElementById('institutionTags');
+    if (toggleSchoolsBtn && institutionTags) {
+      toggleSchoolsBtn.addEventListener('click', () => {
+        const isExpanded = institutionTags.classList.toggle('is-expanded');
+        toggleSchoolsBtn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+        const toggleText = toggleSchoolsBtn.querySelector('.toggle-text');
+        const toggleArrow = toggleSchoolsBtn.querySelector('.toggle-arrow');
+        if (toggleText) {
+          toggleText.textContent = isExpanded ? 'Show less' : 'View all schools (19)';
+        }
+        if (toggleArrow) {
+          toggleArrow.textContent = isExpanded ? '↑' : '↓';
         }
       });
-    });
+    }
 
     // Branch Chips
     branchChips.forEach(chip => {
