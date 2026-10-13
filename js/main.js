@@ -881,8 +881,16 @@
     // Mobile Navigation Toggle
     if (mobileNavToggle && mobileNavMenu) {
       mobileNavToggle.addEventListener('click', () => {
-        const isShown = mobileNavMenu.style.display === 'flex';
-        mobileNavMenu.style.display = isShown ? 'none' : 'flex';
+        const isOpen = mobileNavMenu.classList.toggle('is-active');
+        mobileNavToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+
+      // Auto-close menu when tapping any navigation link
+      mobileNavMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileNavMenu.classList.remove('is-active');
+          mobileNavToggle.setAttribute('aria-expanded', 'false');
+        });
       });
     }
   }

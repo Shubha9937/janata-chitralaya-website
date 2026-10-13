@@ -27,7 +27,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/styles.css?v=8">
+  <link rel="stylesheet" href="css/styles.css?v=9">
 </head>
 <body>
 
@@ -57,8 +57,8 @@
   <nav class="navbar" id="mainNav">
     <div class="container nav-container">
       <a href="#home" class="brand-logo" aria-label="Janata Chitralaya Home">
-        <img src="assets/images/logo.png" alt="Janata Chitralaya Official Logo" class="brand-logo-img" width="88" height="68" style="height: 68px; width: auto; max-width: 88px; object-fit: contain; flex-shrink: 0; display: block;">
-        <div class="brand-text" style="white-space: nowrap;">
+        <img src="assets/images/logo.png" alt="Janata Chitralaya Official Logo" class="brand-logo-img" width="88" height="68">
+        <div class="brand-text">
           <span class="brand-title">JANATA CHITRALAYA</span>
           <span class="brand-tagline">ଜନତା ଚିତ୍ରାଳୟ • ODISHA'S BEST KEPT COSTUME SECRET</span>
         </div>
@@ -81,25 +81,25 @@
           </svg>
           Quick Rent
         </button>
-        <button type="button" class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation menu">
+        <button type="button" class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileNavMenu">
           ☰
         </button>
       </div>
     </div>
 
     <!-- Mobile Dropdown Menu -->
-    <div id="mobileNavMenu" style="display: none; flex-direction: column; background: #FFFFFF; padding: 16px 24px; border-bottom: 1px solid #E2E8F0; gap: 12px;">
-      <a href="#catalog" style="padding: 8px 0; font-weight: 600;">Costume Catalog</a>
-      <a href="#schools" style="padding: 8px 0; font-weight: 600;">School & College Hub</a>
-      <a href="#real-photos" style="padding: 8px 0; font-weight: 600; color: #581C87;">📸 Real Store Moments</a>
-      <a href="#creators" style="padding: 8px 0; font-weight: 600;">Models & Shoots</a>
-      <a href="#makeup" style="padding: 8px 0; font-weight: 600;">Stage Makeup</a>
-      <a href="#branches" style="padding: 8px 0; font-weight: 600;">Branches</a>
-      <a href="https://www.instagram.com/janata.chitralaya/" target="_blank" rel="noopener noreferrer" style="padding: 8px 0; font-weight: 600; color: #DD2A7B; display: flex; align-items: center; gap: 8px;">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+    <div id="mobileNavMenu" class="mobile-nav-menu" role="menu">
+      <a href="#catalog" class="mobile-nav-link" role="menuitem">Costume Catalog</a>
+      <a href="#schools" class="mobile-nav-link" role="menuitem">School & College Hub</a>
+      <a href="#real-photos" class="mobile-nav-link" role="menuitem" style="color: var(--color-purple-primary);">📸 Real Store Moments</a>
+      <a href="#creators" class="mobile-nav-link" role="menuitem">Models & Shoots</a>
+      <a href="#makeup" class="mobile-nav-link" role="menuitem">Stage Makeup</a>
+      <a href="#branches" class="mobile-nav-link" role="menuitem">Branches</a>
+      <a href="https://www.instagram.com/janata.chitralaya/" target="_blank" rel="noopener noreferrer" class="mobile-nav-link" role="menuitem" style="color: #DD2A7B;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
         Instagram: @janata.chitralaya
       </a>
-      <a href="tel:+919348995465" style="padding: 8px 0; font-weight: 700; color: #581C87;">📞 Call: +91 93489 95465 / +91 99375 58221</a>
+      <a href="tel:+919348995465" class="mobile-nav-link" role="menuitem" style="font-weight: 700; color: var(--color-purple-primary);">📞 Call: +91 93489 95465 / +91 99375 58221</a>
     </div>
   </nav>
 
@@ -728,11 +728,11 @@
             </select>
           </div>
 
-          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-            <button type="submit" class="btn btn-whatsapp" id="btnSubmitWa1" data-target-num="919937558221" style="flex: 1; min-width: 200px; padding: 13px; font-size: 0.95rem; font-weight: 700;">
+          <div class="modal-submit-group">
+            <button type="submit" class="btn btn-whatsapp" id="btnSubmitWa1" data-target-num="919937558221">
               Send to 99375 58221 💬
             </button>
-            <button type="button" class="btn btn-whatsapp" id="btnSubmitWa2" data-target-num="919692691800" style="flex: 1; min-width: 200px; padding: 13px; font-size: 0.95rem; font-weight: 700; background: #128C7E;">
+            <button type="button" class="btn btn-whatsapp" id="btnSubmitWa2" data-target-num="919692691800" style="background: #128C7E;">
               Send to 96926 91800 💬
             </button>
           </div>
@@ -857,6 +857,6 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="js/main.js?v=8"></script>
+  <script src="js/main.js?v=9"></script>
 </body>
 </html>
