@@ -10,22 +10,22 @@
   // Branch Contact Directory
   const BRANCHES = {
     'unit8': {
-      name: 'Unit-8 Flagship Complex',
+      name: 'Unit-8 Store',
       address: 'Shop No. KXS-15, Kalyani Market Complex, Unit-8, Bhubaneswar, Odisha 751012',
       phone: '+919348995465',
       altPhone: '+919937558221',
       mapQuery: 'Janata+Chitralaya+Kalyani+Market+Complex+Unit+8+Bhubaneswar'
     },
     'patia': {
-      name: 'Patia / Nandan Vihar Branch',
+      name: 'Patia Store',
       address: 'Near Subhadra Apartment, Nandankanan Road, Star City, Patia, Bhubaneswar, Odisha',
       phone: '+917735663429',
       altPhone: '+919937558221',
       mapQuery: 'Janata+Chitralaya+Patia+Bhubaneswar'
     },
     'nuagaon': {
-      name: 'Nuagaon Cultural Center',
-      address: 'Nuagaon Main Road,Near Indian Oil Petrol Pump, Nuagaon, Bhubaneswar, Odisha',
+      name: 'Nuagaon Store',
+      address: 'Nuagaon Main Road, Near Indian Oil Petrol Pump, Nuagaon, Bhubaneswar, Odisha',
       phone: '+919348205465',
       altPhone: '+919937558221',
       mapQuery: 'Janata+Chitralaya+Nuagaon+Bhubaneswar'
@@ -357,6 +357,19 @@
     filtered.forEach(costume => {
       const card = document.createElement('div');
       card.className = 'costume-card';
+      card.setAttribute('role', 'button');
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('aria-label', `Inquire about ${costume.title} - ${costume.price}`);
+
+      card.addEventListener('click', () => {
+        openBookingModal(costume.title);
+      });
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openBookingModal(costume.title);
+        }
+      });
 
       // Image Box
       const imgBox = document.createElement('div');
@@ -392,15 +405,26 @@
       desc.textContent = costume.description;
       body.appendChild(desc);
 
-      // Tags
+      // Tags: display top 2 tags + compact +N more badge to prevent clutter
       const metaBox = document.createElement('div');
       metaBox.className = 'card-meta';
-      costume.tags.forEach(t => {
+      const visibleTags = costume.tags.slice(0, 2);
+      const remainingTags = costume.tags.slice(2);
+
+      visibleTags.forEach(t => {
         const tag = document.createElement('span');
         tag.className = 'meta-tag';
         tag.textContent = t;
         metaBox.appendChild(tag);
       });
+
+      if (remainingTags.length > 0) {
+        const moreTag = document.createElement('span');
+        moreTag.className = 'meta-tag meta-tag-more';
+        moreTag.textContent = `+${remainingTags.length} more`;
+        moreTag.title = remainingTags.join(', ');
+        metaBox.appendChild(moreTag);
+      }
       body.appendChild(metaBox);
 
       // Footer
@@ -421,7 +445,7 @@
 
       const availBadge = document.createElement('span');
       availBadge.className = 'card-availability-pill';
-      availBadge.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Available in Store';
+      availBadge.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Available in Store';
       footer.appendChild(availBadge);
 
       body.appendChild(footer);
