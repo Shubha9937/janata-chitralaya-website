@@ -841,6 +841,8 @@ button {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(88, 28, 135, 0.12);
 }
 
 .card-price {
@@ -849,21 +851,44 @@ button {
 }
 
 .price-label {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   color: var(--color-text-light);
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
 .price-amount {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--color-crimson);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-purple-primary);
 }
 
-.card-footer .btn {
-  padding: 8px 16px;
-  font-size: 0.85rem;
+.card-availability-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.28);
+  color: #047857;
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 5px 11px;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+}
+
+.card-availability-pill svg {
+  stroke: #059669;
+  flex-shrink: 0;
+}
+
+/* Explicit safeguard: ensure no WhatsApp or rent button appears on catalog cards */
+.costume-card .btn,
+.costume-card button,
+.card-footer .btn,
+.card-footer button {
+  display: none !important;
 }
 
 /* School & College Appreciation Section */
@@ -2132,3 +2157,72 @@ button {
   border-radius: var(--radius-sm);
   margin-top: auto;
 }
+
+/* Mobile Optimization for Costume Catalog & Cards */
+@media (max-width: 640px) {
+  .costume-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .costume-card {
+    border-radius: var(--radius-md);
+  }
+  .card-body {
+    padding: 16px 16px 18px 16px;
+  }
+  .card-body h3 {
+    font-size: 1.15rem;
+    margin-bottom: 6px;
+  }
+  .card-body p {
+    font-size: 0.86rem;
+    line-height: 1.45;
+    margin-bottom: 12px;
+  }
+  .card-meta {
+    gap: 6px;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+  }
+  .meta-tag {
+    font-size: 0.72rem;
+    padding: 2px 8px;
+  }
+  .card-footer {
+    padding-top: 12px;
+  }
+  .price-label {
+    font-size: 0.68rem;
+  }
+  .price-amount {
+    font-size: 1.15rem;
+  }
+  .card-availability-pill {
+    font-size: 0.72rem;
+    padding: 4px 9px;
+  }
+  .catalog-search-bar {
+    padding: 8px 16px;
+    margin-bottom: 16px;
+  }
+  .catalog-category-tabs {
+    gap: 6px;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .category-tab-btn {
+    padding: 8px 16px;
+    font-size: 0.84rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .card-footer {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .card-availability-pill {
+    font-size: 0.7rem;
+  }
+}
+
