@@ -1626,3 +1626,355 @@ button {
   font-size: 0.85rem;
   gap: 6px;
 }
+
+/* ==========================================================================
+   Real In-Store & Event Photos Sliding Carousel Section
+   ========================================================================== */
+.real-carousel-section {
+  background: #FDFBF7;
+  position: relative;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.carousel-outer-wrapper {
+  position: relative;
+  padding: 10px 0;
+}
+
+.carousel-viewport {
+  overflow: hidden;
+  width: 100%;
+  border-radius: 16px;
+  padding: 12px 0 20px 0;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.carousel-card {
+  flex: 0 0 calc((100% - 48px) / 3);
+  background: var(--color-surface-white);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+  cursor: pointer;
+  user-select: none;
+}
+
+@media (max-width: 991px) {
+  .carousel-card {
+    flex: 0 0 calc((100% - 24px) / 2);
+  }
+}
+
+@media (max-width: 640px) {
+  .carousel-card {
+    flex: 0 0 100%;
+  }
+}
+
+.carousel-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(139, 0, 0, 0.12);
+  border-color: var(--color-gold);
+}
+
+.carousel-image-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #11141A;
+}
+
+.carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  display: block;
+}
+
+.carousel-card:hover .carousel-img {
+  transform: scale(1.06);
+}
+
+.carousel-pill-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(11, 14, 20, 0.82);
+  backdrop-filter: blur(8px);
+  color: var(--color-gold-light);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  z-index: 2;
+}
+
+.carousel-zoom-hint {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(11, 14, 20, 0.75);
+  backdrop-filter: blur(6px);
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.carousel-card:hover .carousel-zoom-hint {
+  opacity: 1;
+}
+
+.carousel-card-body {
+  padding: 18px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.carousel-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+
+.carousel-card-desc {
+  font-size: 0.85rem;
+  color: var(--color-charcoal-light);
+  line-height: 1.5;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.carousel-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--color-border);
+  padding-top: 12px;
+}
+
+.carousel-card-location {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.carousel-card-btn {
+  background: transparent;
+  border: none;
+  color: var(--color-primary);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color var(--transition-fast);
+}
+
+.carousel-card-btn:hover {
+  color: var(--color-gold);
+}
+
+/* Controls: Arrows & Indicators */
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.carousel-arrows {
+  display: flex;
+  gap: 12px;
+}
+
+.carousel-arrow-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-surface-white);
+  border: 1px solid var(--color-border);
+  color: var(--color-charcoal);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.carousel-arrow-btn:hover {
+  background: var(--color-primary);
+  color: #FFFFFF;
+  border-color: var(--color-primary);
+  transform: scale(1.05);
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #CBD5E1;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  padding: 0;
+}
+
+.carousel-dot.active {
+  background: var(--color-primary);
+  width: 26px;
+  border-radius: 999px;
+}
+
+.carousel-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--color-charcoal-light);
+  background: rgba(0, 0, 0, 0.04);
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
+.carousel-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10B981;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); opacity: 0.7; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.7; }
+}
+
+/* Lightbox Modal */
+.lightbox-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1050;
+  background: rgba(11, 14, 20, 0.94);
+  backdrop-filter: blur(12px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.lightbox-modal.active {
+  display: flex;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 900px;
+  max-height: 92vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lightbox-close-btn {
+  position: absolute;
+  top: -46px;
+  right: 0;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  transition: background var(--transition-fast);
+}
+
+.lightbox-close-btn:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.lightbox-image-wrap {
+  max-height: 70vh;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  background: #000;
+}
+
+.lightbox-image {
+  max-height: 70vh;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.lightbox-caption-bar {
+  margin-top: 14px;
+  text-align: center;
+  color: #FFFFFF;
+  max-width: 720px;
+}
+
+.lightbox-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-gold-light);
+  margin-bottom: 4px;
+}
+
+.lightbox-desc {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.45;
+}

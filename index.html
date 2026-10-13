@@ -62,6 +62,7 @@
       <ul class="nav-links">
         <li><a href="#catalog">Costume Catalog</a></li>
         <li><a href="#schools">School & College Hub</a></li>
+        <li><a href="#real-photos">Real Moments</a></li>
         <li><a href="#creators">Models & Shoots</a></li>
         <li><a href="#makeup">Stage Makeup</a></li>
         <li><a href="#branches">Branches</a></li>
@@ -85,6 +86,7 @@
     <div id="mobileNavMenu" style="display: none; flex-direction: column; background: #FFFFFF; padding: 16px 24px; border-bottom: 1px solid #E2E8F0; gap: 12px;">
       <a href="#catalog" style="padding: 8px 0; font-weight: 600;">Costume Catalog</a>
       <a href="#schools" style="padding: 8px 0; font-weight: 600;">School & College Hub</a>
+      <a href="#real-photos" style="padding: 8px 0; font-weight: 600; color: #8B0000;">📸 Real Store Moments</a>
       <a href="#creators" style="padding: 8px 0; font-weight: 600;">Models & Shoots</a>
       <a href="#makeup" style="padding: 8px 0; font-weight: 600;">Stage Makeup</a>
       <a href="#branches" style="padding: 8px 0; font-weight: 600;">Branches</a>
@@ -277,6 +279,43 @@
 
           <div class="school-certificate-banner">
             ⭐ <strong>100% On-Time Delivery Guarantee:</strong> All group orders are packed, tagged, and delivered before your final stage dress rehearsal!
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Real Store & Event Photos Carousel Section -->
+  <section class="real-carousel-section section-padding" id="real-photos">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-gold">✨ ପ୍ରକୃତ ଷ୍ଟୋର୍ ମୁହୂର୍ତ୍ତ • 100% In-Store & Stage Photos</span>
+        <h2>Real Customer Moments & Backstage Heritage</h2>
+        <p>Step inside our Kalyani Market Complex showroom, live costume fitting rooms, and backstage greenrooms across Bhubaneswar.</p>
+      </div>
+
+      <!-- Carousel Outer Container -->
+      <div class="carousel-outer-wrapper" id="realCarouselWrapper">
+        <div class="carousel-viewport">
+          <div class="carousel-track" id="carouselTrack" aria-live="polite">
+            <!-- Rendered securely via main.js with continuous auto-sliding and rich descriptions -->
+          </div>
+        </div>
+
+        <!-- Carousel Controls: Prev/Next & Dots -->
+        <div class="carousel-controls">
+          <div class="carousel-arrows">
+            <button type="button" class="carousel-arrow-btn" id="carouselPrevBtn" aria-label="Previous real photo slide">❮</button>
+            <button type="button" class="carousel-arrow-btn" id="carouselNextBtn" aria-label="Next real photo slide">❯</button>
+          </div>
+
+          <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Slide indicators">
+            <!-- Rendered dynamically -->
+          </div>
+
+          <div class="carousel-status-badge">
+            <span class="carousel-status-dot"></span>
+            <span>Auto-sliding • Hover to pause</span>
           </div>
         </div>
       </div>
@@ -632,6 +671,25 @@
             Both numbers are active on WhatsApp. Clicking either button opens WhatsApp with your pre-filled details!
           </small>
         </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox Modal for Real Photos -->
+  <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-label="Photo View">
+    <div class="lightbox-content">
+      <button type="button" class="lightbox-close-btn" id="lightboxCloseBtn" aria-label="Close photo view">✕</button>
+      <div class="lightbox-image-wrap">
+        <img src="" alt="" class="lightbox-image" id="lightboxImg">
+      </div>
+      <div class="lightbox-caption-bar">
+        <div class="lightbox-title" id="lightboxTitle"></div>
+        <div class="lightbox-desc" id="lightboxDesc"></div>
+        <div class="lightbox-action-btn">
+          <button type="button" class="btn btn-whatsapp open-booking-modal" id="lightboxBookBtn" data-costume="Costume Inquiry">
+            Inquire / Book This Look on WhatsApp 💬
+          </button>
+        </div>
       </div>
     </div>
   </div>
