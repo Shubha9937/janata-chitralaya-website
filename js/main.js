@@ -135,6 +135,22 @@
   // Real In-Store & Event Photographs for Continuous Carousel Slider
   const REAL_CAROUSEL_DATA = [
     {
+      id: 'real-ahe-trinity',
+      title: 'Ahe Nila Shaila — The Holy Trinity & Gajapati King',
+      location: 'Rabindra Mandap Stage Production',
+      tag: 'Landmark Stage Play',
+      image: 'assets/images/ahe-nilashaila/stage-holy-trinity-gajapati.jpg',
+      caption: 'Actual stage production of Ahe Nila Shaila at Rabindra Mandap featuring handcrafted Holy Trinity idols and Gajapati royal brocade attire by Janata Chitralaya.'
+    },
+    {
+      id: 'real-ahe-taqi',
+      title: 'Mohammed Taqi Khan Mughal Brocade Attire (BTS)',
+      location: 'Rabindra Mandap Greenroom',
+      tag: 'Greenroom Artistry',
+      image: 'assets/images/ahe-nilashaila/mohammed-taqi-khan.jpg',
+      caption: 'Behind-the-scenes greenroom fitting of Mohammed Taqi Khan in emerald brocade angarkha court robe, tasselled pagdi, and beard makeup.'
+    },
+    {
       id: 'real-hanuman-shop',
       title: 'Mahavira Hanuman Theatrical Attire & Mukut',
       location: 'Kalyani Market Flagship Store',
